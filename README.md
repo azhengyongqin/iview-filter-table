@@ -2,7 +2,7 @@
 
 > 一个基于iView Table 的带搜索过滤的Table组件, 支持 `Input`输入框 和  `Select`下拉框两种表格筛选方式.
 
-![project.gif](C:\Users\10230\Desktop\strip)
+![project.gif](https://github.com/azhengyongqin/iview-filter-table/blob/master/public/image/project.gif)
 
 ## 使用
 **模板**：
@@ -65,7 +65,7 @@ onSearch(search) {
 
 直接运行该项目可以看当前组件的Example效果。
 
-![project.gif](C:\Users\10230\Desktop\strip)
+![project.gif](https://github.com/azhengyongqin/iview-filter-table/blob/master/public/image/filterTable.gif)
 
 ## Project setup
 ```
