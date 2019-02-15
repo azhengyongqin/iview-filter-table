@@ -1,16 +1,14 @@
 <template>
   <div class="hello">
-    <filter-table @load="loadData"
+    <filter-table @on-search="onSearch"
                   :data="users"
-                  :columns="tableColumns"
-                  :search="search">
+                  :columns="tableColumns">
     </filter-table>
   </div>
 </template>
 
 <script>
   import FilterTable from './FilterTable';
-
   const userStatus = {
     0: {
       value: 0,
@@ -27,66 +25,11 @@
       color: 'green'
     },
   };
-
-  const users = [
-    {
-      username: '小明',
-      phone: '17760172601',
-      email: '1023007219@qq.com',
-      money: '50',
-      status: '1',
-    }, {
-      username: '小兰',
-      phone: '17760172605',
-      email: '1023007219@qq.com',
-      money: '50',
-      status: '2',
-    }, {
-      username: '小东',
-      phone: '17761232601',
-      email: '1023007219@qq.com',
-      money: '20',
-      status: '2',
-    }, {
-      username: '咱三',
-      phone: '17722226011',
-      email: '1023007219@qq.com',
-      money: '20',
-      status: '1',
-    }, {
-      username: '小明',
-      phone: '17760202601',
-      email: '1023007219@qq.com',
-      money: '20',
-      status: '1',
-    }, {
-      username: '尼斯',
-      phone: '17760172601',
-      email: '1023007219@qq.com',
-      money: '50',
-      status: '1',
-    }, {
-      username: '导航',
-      phone: '17760172601',
-      email: '1023007219@qq.com',
-      money: '20',
-      status: '1',
-    }, {
-      username: '但是还是',
-      phone: '17760172601',
-      email: '1023007219@qq.com',
-      money: '50',
-      status: '1',
-    },
-  ];
-
   export default {
-    name: 'HelloWorld',
+    name: 'Example',
     components: {FilterTable},
-
     data() {
       return {
-        search: {},
         users: [],
         tableColumns: [
           {
@@ -133,15 +76,63 @@
               }, this.formatStatus(params.row.status, userStatus).name)
             }
           },
-
         ],
       }
     },
-    async mounted() {
-      await this.loadData();
+    created() {
+      this.users = [
+        {
+          username: '小明',
+          phone: '17760172601',
+          email: '1023007219@qq.com',
+          money: '50',
+          status: '1',
+        }, {
+          username: '小兰',
+          phone: '17760172605',
+          email: '1023007219@qq.com',
+          money: '50',
+          status: '2',
+        }, {
+          username: '小东',
+          phone: '17761232601',
+          email: '1023007219@qq.com',
+          money: '20',
+          status: '2',
+        }, {
+          username: '咱三',
+          phone: '17722226011',
+          email: '1023007219@qq.com',
+          money: '20',
+          status: '1',
+        }, {
+          username: '小明',
+          phone: '17760202601',
+          email: '1023007219@qq.com',
+          money: '20',
+          status: '1',
+        }, {
+          username: '尼斯',
+          phone: '17760172601',
+          email: '1023007219@qq.com',
+          money: '50',
+          status: '1',
+        }, {
+          username: '导航',
+          phone: '17760172601',
+          email: '1023007219@qq.com',
+          money: '20',
+          status: '1',
+        }, {
+          username: '但是还是',
+          phone: '17760172601',
+          email: '1023007219@qq.com',
+          money: '50',
+          status: '1',
+        },
+      ];
     },
     methods: {
-
       /**
        * 格式化状态
        * @param value 状态值
@@ -151,17 +142,14 @@
       formatStatus(value, status) {
         return status[value] || {value: '', name: ''};
       },
-      loadData() {
+      onSearch(search) {
         //模拟数据库查询数据
-        this.users = users;
         //这个search应该是传到后台,然后台来根据条件查询数据库
-        console.log('查询条件',this.search);
+        alert('查询条件：'+JSON.stringify(search,null,4));
       }
     },
-
   }
 </script>
 
 <style scoped>
-
 </style>

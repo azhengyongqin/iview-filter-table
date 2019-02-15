@@ -20,17 +20,17 @@
 <script>
   export default {
     name: "FilterTable",
-    props: [
-      'columns',//列描述数据对象
-      'data',   //表格数据
-      'search'  //过滤条件保存的对象,就是保存Input框和Select中值
-    ],
+    props: {
+      columns: Array, //列描述数据对象
+      data: Array     //表格数据
+    },
     data() {
       return {
         filters: [{
           title: ''
         }],
         tableColumnsFilters: [],
+        search: {},//过滤条件保存的对象,就是保存Input框和Select中值
       }
     },
     created() {
@@ -40,15 +40,12 @@
          * 因为是采用的两个表的形式,过滤表中显示查询的Input,Select条件输组件,表头显示的是数据表的表头,渲染的数据是传入的columns中的filter字段
          * 数据表隐藏表头,只显示数据,渲染的数据是传入的columns中的key值
          */
-
         //将传入的列描述数据对象(columns) 的title和width 复制给 过滤表的列描述数据对象(tableColumnsFilters)
         this.$set(filter, 'title', this.columns[index].title);
         if (this.columns[index].width) {
           this.$set(filter, 'width', this.columns[index].width);
         }
-
-        let render = (h) => {
-        };
+        let render = (h) => {};
         /**
          * 需要有搜索的列, 只要在 列描述数据对象columns中配置 filter属性就行如下:
          {
@@ -67,7 +64,6 @@
            }
          },
          */
-
         //如果存在 过滤选项
         if (this.columns[index].filter) {
           //过滤为 下拉选择框
@@ -147,7 +143,7 @@
       //重新加载数据
       load() {
         //会执行一个load的事件
-        this.$emit('load');
+        this.$emit('on-search',this.search);
       },
       //验证输入框的值
       validInputValue(index, inputValue) {
@@ -164,5 +160,4 @@
 </script>
 
 <style scoped>
-
 </style>
