@@ -1,46 +1,38 @@
-
-[![](https://img.shields.io/badge/%E5%8E%9F%E6%96%87%E5%9C%B0%E5%9D%80-CSDN-FF4567.svg)](https://blog.csdn.net/qq_23179075/article/details/79939244)
-[![](https://img.shields.io/badge/Vue%E6%BA%90%E7%A0%81%E5%9C%B0%E5%9D%80-iview--filter--table-F37F40.svg)](https://github.com/azhengyongqin/iview-filter-table)
-[![](https://img.shields.io/badge/CSDN-%40印象丶亮仔-%23F45555.svg)](https://blog.csdn.net/qq_23179075)
-[![](https://img.shields.io/badge/Github-%40azhengyongqin-brightgreen.svg)](https://github.com/azhengyongqin)
-[![](https://img.shields.io/badge/Vue.js-2.0-41B883.svg)](https://cn.vuejs.org)
-[![](https://img.shields.io/badge/iView-2.0-blue.svg)](https://www.iviewui.com)
 # iview-filter-table
 
 > 一个基于iView Table 的带搜索过滤的Table组件, 支持 `Input`输入框 和  `Select`下拉框两种表格筛选方式.
 
-![filterTable.gif](https://upload-images.jianshu.io/upload_images/2909848-6ebb4e553dfb18bc.gif?imageMogr2/auto-orient/strip)
+![project.gif](C:\Users\10230\Desktop\strip)
 
 ## 使用
-**模板**
-```vue
-    <filter-table @load="loadData" //过滤触发事件
-                  :data="users"
-                  :columns="tableColumns"
-                  :search="search" //过滤的条件
-                  >
-    </filter-table>
+**模板**：
+```html
+<filter-table @on-search="onSearch"
+              :data="users"
+              :columns="tableColumns">
+</filter-table>
 ```
-**列描述数据对象**
+**列描述数据对象：**
 ```js
-        tableColumns: [
-          {
-            title: '用户名',
-            key: 'username',
-            filter: {
-              type: 'Input' //输入框过滤
-            }
-          },
-          {
-            title: '状态',
-            key: 'status',
-            filter: {
-              type: 'Select',//下拉框过滤
-              option: userStatus //下拉框选项数据对象
-            }
-        ]
+tableColumns: [
+  {
+    title: '用户名',
+    key: 'username',
+    filter: {
+      type: 'Input' //输入框过滤
+    }
+  },
+  {
+    title: '状态',
+    key: 'status',
+    filter: {
+      type: 'Select',//下拉框过滤
+      option: userStatus //下拉框选项数据对象
+    }
+  }
+]
 ```
-**下拉框选项数据格式**
+**下拉框选项数据格式：**
 ```js
   const userStatus = {
     0: {
@@ -59,21 +51,49 @@
     },
   };
 ```
+**触发搜索事件：**
 
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
+```js
+onSearch(search) {
+  //模拟数据库查询数据
+  //这个search应该是传到后台,然后台来根据条件查询数据库
+  alert('查询条件：'+JSON.stringify(search,null,4));
+}
 ```
+
+在该方法中进行条件过滤，更新组件 `data` 属性的值。
+
+直接运行该项目可以看当前组件的Example效果。
+
+![project.gif](C:\Users\10230\Desktop\strip)
+
+## Project setup
+```
+yarn install
+```
+
+### Compiles and hot-reloads for development
+```
+yarn run serve
+```
+
+### Compiles and minifies for production
+```
+yarn run build
+```
+
+### Run your tests
+```
+yarn run test
+```
+
+### Lints and fixes files
+```
+yarn run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
+
 **Github源码地址**
 [![](https://img.shields.io/badge/Vue%E6%BA%90%E7%A0%81%E5%9C%B0%E5%9D%80-iview--filter--table-F37F40.svg)](https://github.com/azhengyongqin/iview-filter-table)
