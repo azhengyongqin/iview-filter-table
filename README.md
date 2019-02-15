@@ -2,7 +2,7 @@
 
 > 一个基于iView Table 的带搜索过滤的Table组件, 支持 `Input`输入框 和  `Select`下拉框两种表格筛选方式.
 
-![project.gif](C:\Users\10230\Desktop\strip)
+![project.gif](https://github.com/azhengyongqin/iview-filter-table/blob/master/public/image/project.gif)
 
 ## 使用
 **模板**：
@@ -65,7 +65,7 @@ onSearch(search) {
 
 直接运行该项目可以看当前组件的Example效果。
 
-![project.gif](C:\Users\10230\Desktop\strip)
+![project.gif](https://github.com/azhengyongqin/iview-filter-table/blob/master/public/image/filterTable.gif)
 
 ## Project setup
 ```
@@ -96,4 +96,4 @@ yarn run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 **Github源码地址**
-[![](https://img.shields.io/badge/Vue%E6%BA%90%E7%A0%81%E5%9C%B0%E5%9D%80-iview--filter--table-F37F40.svg)](https://github.com/azhengyongqin/iview-filter-table)
+https://github.com/azhengyongqin/iview-filter-table
