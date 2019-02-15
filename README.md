@@ -96,4 +96,4 @@ yarn run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 **Github源码地址**
-[![](https://img.shields.io/badge/Vue%E6%BA%90%E7%A0%81%E5%9C%B0%E5%9D%80-iview--filter--table-F37F40.svg)](https://github.com/azhengyongqin/iview-filter-table)
+https://github.com/azhengyongqin/iview-filter-table
